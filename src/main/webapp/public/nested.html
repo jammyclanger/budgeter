@@ -29,11 +29,13 @@
 
 <!-- Template for a normal list item -->
 <script type="text/ng-template" id="item.html">
-    <div class="item">Item {{item.id}}</div>
+    <div class="item">Id {{item.id}}</div>
+    <div class="item">Amount {{item.amount}}</div>
+    <div class="item">Reference {{item.reference}}</div>
 </script>
 
 <!-- Main area with dropzones and source code -->
-<div class="col-md-10">
+<div class="col-md-10 col-md-offset-1">
     <div class="row">
         <div ng-repeat="(zone, list) in models.dropzones" class="col-md-6">
             <div class="dropzone box box-yellow">
@@ -46,18 +48,21 @@
 
     <div view-source="nested" highlight-lines="{markup: '1-18, 20-28, 40-42, 57-68, 78-82'}"></div>
 
-    <h2>Generated Model</h2>
-    <pre>{{modelAsJson}}</pre>
 </div>
 
-<!-- Sidebar -->
+<div class="col-md-6 col-md-offset-3" style="margin-top: 3em;">
+    <h2>Totals</h2>
+    <h3>Unsorted Total: {{unsortedTotal}}</h3>
+    <h3>Food Total: {{foodTotal}}</h3>
+    <h3>Housing Total: {{housingTotal}}</h3>
+    <h3>Luxuries Total: {{luxuriesTotal}}</h3>
+</div>
+<!--
 <div class="col-md-2">
 
     <div class="toolbox box box-grey box-padding">
         <h3>New Elements</h3>
         <ul>
-            <!-- The toolbox only allows to copy objects, not move it. After a new
-                 element was created, dnd-copied is invoked and we generate the next id -->
             <li ng-repeat="item in models.templates"
                 dnd-draggable="item"
                 dnd-effect-allowed="copy"
@@ -67,19 +72,16 @@
             </li>
         </ul>
     </div>
-
     <div ng-if="models.selected" class="box box-grey box-padding">
         <h3>Selected</h3>
         <strong>Type: </strong> {{models.selected.type}}<br>
         <input type="text" ng-model="models.selected.id" class="form-control" style="margin-top: 5px" />
     </div>
-
     <div class="trashcan box box-grey box-padding">
-        <!-- If you use [] as referenced list, the dropped elements will be lost -->
         <h3>Trashcan</h3>
         <ul dnd-list="[]">
             <li><img src="/public/trashcan.jpg"></li>
         </ul>
     </div>
-
 </div>
+-->

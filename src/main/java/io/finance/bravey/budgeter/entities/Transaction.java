@@ -1,9 +1,18 @@
 package io.finance.bravey.budgeter.entities;
 
 public class Transaction {
+	private String type;
 	private Long id;
 	private String reference;
 	private Double amount;
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	public Long getId() {
 		return id;
@@ -31,6 +40,7 @@ public class Transaction {
 
 	public Transaction(Long id, String reference, Double amount) {
 		super();
+		this.type = "item";
 		this.id = id;
 		this.reference = reference;
 		this.amount = amount;
@@ -41,6 +51,7 @@ public class Transaction {
 	}
 
 	public Transaction(String id, String reference, String amount) throws NumberFormatException {
+		this.type = "item";
 		this.id = Long.parseLong(id);
 		this.reference = reference;
 		this.amount = Double.parseDouble(amount);
